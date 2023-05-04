@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask import flash
-from wtforms import StringField,SubmitField,PasswordField
+from wtforms import StringField,SubmitField,PasswordField,FileField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 from .models import User
 
@@ -21,3 +21,7 @@ class FormSign(FlaskForm):
         user =  User.query.filter_by(email=email).first()
         if user:
             return ValidationError(flash('Email já cadastrado'))
+
+class FormImg(FlaskForm):
+    img = FileField("Foto", validators=[DataRequired()])
+    button = SubmitField("Enviar")

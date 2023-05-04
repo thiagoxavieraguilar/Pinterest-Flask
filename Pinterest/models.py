@@ -1,6 +1,6 @@
-from . import db
+from Pinterest import db,login_manager
 from sqlalchemy.sql import func
-from flask_login import UserMixin,login_manager
+from flask_login import UserMixin
 
 @login_manager.user_loader
 def load_usuario(id_usuario):
@@ -23,4 +23,4 @@ class Img(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image = db.Column(db.String(150), default="default.png")
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
-    id_usuario = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
+    id_user = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
