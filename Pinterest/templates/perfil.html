@@ -19,7 +19,7 @@ Perfil - {{ user.username }}
         <div class="bloco-arquivo">
             <label for="foto" class="botao-arquivo">
               Escolher arquivo
-                {{ form.img(class="input-arquivo", id="img") }}
+                {{ form.img(class="input-arquivo", id="foto") }}
             </label>
             <span id="imagem-arquivo" class=""></span>
           </div>
@@ -38,7 +38,7 @@ Perfil - {{ user.username }}
 <div class="conteudo">
 {% for foto in user.imgs %}
     <div class="bloco-imagem">
-      <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" />
+      <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.image)) }}" />
     </div>
 {% endfor %}
     </div>

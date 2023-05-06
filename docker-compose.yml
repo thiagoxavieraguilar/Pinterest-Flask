@@ -7,20 +7,19 @@ services:
         - 3306:3306
         environment: 
         - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_DATABASE=bet_flask
+        - MYSQL_DATABASE=pinterest_db
         volumes: 
         - mysqlVolume:/var/lib/mysql
         - mysqlConfig:/etc/mysql
         hostname: mysql
     
-    bet_flask:
+    pinterest_flask:
         build:
             context: .
         ports:
-        - 3000:5000
+        - 5000:5000
         depends_on: 
-            - mysqldb
-
+            - pinterest_db
 volumes: 
     mysqlVolume:
     mysqlConfig:

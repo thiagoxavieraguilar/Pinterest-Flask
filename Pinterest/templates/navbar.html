@@ -1,6 +1,6 @@
 <header>
         <nav>
-          <a href="{{ url_for('feed') }}" class="logo-pinterest" style="text-decoration: none;">
+          <a href="{{ url_for('views.feed') }}" class="logo-pinterest" style="text-decoration: none;">
             <svg
               height="40"
               viewBox="-3 -3 82 82"
@@ -19,8 +19,8 @@
           </a>
 
           <div class="restante-nav">
-            <p class="botao-perfil"><a href="{{ url_for('perfil', id_usuario=current_user.id) }}" class="link-nav">Perfil</a></p>
-            <a href="{{ url_for('logout') }}" class="link-nav">Sair</a>
+            <p class="botao-perfil"><a href="{{ url_for('views.perfil', user_id=current_user.id) }}" class="link-nav">Perfil</a></p>
+            <a href="{{ url_for('views.logout') }}" class="link-nav">Sair</a>
           </div>
         </nav>
       </header>
